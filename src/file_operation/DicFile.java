@@ -43,9 +43,10 @@ public class DicFile extends File { // 定义词库文件类是File类的子类
 	 * @return 如果读取词库文件成功，返回词库名；否则返回null
 	 */
 	public String getDicName() throws IOException {
-		BufferedReader r/* 不明白此处r为何报黄线 */ = new BufferedReader(new FileReader(this));
+		BufferedReader r = new BufferedReader(new FileReader(this));
 		String s1 = "Dictionary name=";
 		String s2 = r.readLine();
+		r.close();
 		if (!s2.startsWith(s1)) { // 判断s2是否以"Dictionary name="开头
 			return null;
 		}
