@@ -1,4 +1,4 @@
-package main;
+锘縫ackage main;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
- * 用于提示信息
+ * 鐢ㄤ簬鎻愮ず淇℃伅
  * 
  * @author Benzolamps
  *
@@ -35,7 +35,7 @@ public class MessageFrame extends JFrame implements ActionListener {
 	}
 
 	public JButton createOKButton() {
-		okButton = new JButton("确定");
+		okButton = new JButton("纭畾");
 		okButton.setMnemonic(KeyEvent.VK_O);
 		Point pt = new Point();
 		pt.x = getContentPane().getWidth() - 90;
@@ -48,7 +48,7 @@ public class MessageFrame extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		if ("确定".equals(arg0.getActionCommand())) {
+		if ("纭畾".equals(arg0.getActionCommand())) {
 
 			setVisible(false);
 		}

@@ -1,4 +1,4 @@
-package library_operation;
+ï»¿package library_operation;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -16,20 +16,20 @@ import main.MainFrame;
 import main.MessageFrame;
 
 /**
- * ´Ê¿âÉ¾³ı½çÃæÊÇJFrameµÄ×ÓÀà£¬ÊµÏÖÁËActionListener½Ó¿Ú
+ * è¯åº“åˆ é™¤ç•Œé¢æ˜¯JFrameçš„å­ç±»ï¼Œå®ç°äº†ActionListeneræ¥å£
  *  
  * @author Benzolamps
  *
  */
 public class DropFrame extends JFrame implements ActionListener {
 	private static final long serialVersionUID = -7908921611241229898L;
-	private JTextField nameText; // ÏÔÊ¾´Ê¿âÃû
-	private MainFrame frame; // Ö÷½çÃæ
+	private JTextField nameText; // æ˜¾ç¤ºè¯åº“å
+	private MainFrame frame; // ä¸»ç•Œé¢
 	private JButton cancelButton;
 	private JButton okButton;
 
 	public DropFrame(MainFrame frame) {
-		super("É¾³ıµ±Ç°´Ê¿â");
+		super("åˆ é™¤å½“å‰è¯åº“");
 		this.frame = frame;
 		setLayout(null);
 		setLocationRelativeTo(null);
@@ -43,7 +43,7 @@ public class DropFrame extends JFrame implements ActionListener {
 	}
 
 	public JTextField createNameText() {
-		JLabel nameLabel = new JLabel("´Ê¿âÃû:");
+		JLabel nameLabel = new JLabel("è¯åº“å:");
 		nameLabel.setBounds(10, 10, 95, 20);
 		getContentPane().add(nameLabel);
 
@@ -55,14 +55,14 @@ public class DropFrame extends JFrame implements ActionListener {
 	}
 
 	public JLabel createMessageLabel() {
-		JLabel messageLabel = new JLabel("È·¶¨ÒªÉ¾³ıµ±Ç°´Ê¿âÂğ?");
+		JLabel messageLabel = new JLabel("ç¡®å®šè¦åˆ é™¤å½“å‰è¯åº“å—?");
 		messageLabel.setBounds(10, 95, getContentPane().getWidth() - 20, 50);
 
 		return messageLabel;
 	}
 
 	public JButton createCancelButton() {
-		cancelButton = new JButton("È¡Ïû");
+		cancelButton = new JButton("å–æ¶ˆ");
 		cancelButton.setMnemonic(KeyEvent.VK_C);
 		Point pt = new Point();
 		pt.x = 10;
@@ -73,7 +73,7 @@ public class DropFrame extends JFrame implements ActionListener {
 	}
 
 	public JButton createOKButton() {
-		okButton = new JButton("È·¶¨");
+		okButton = new JButton("ç¡®å®š");
 		okButton.setMnemonic(KeyEvent.VK_O);
 		Point pt = new Point();
 		pt.x = getContentPane().getWidth() - 90;
@@ -86,23 +86,23 @@ public class DropFrame extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		if ("È·¶¨".equals(arg0.getActionCommand())) {
+		if ("ç¡®å®š".equals(arg0.getActionCommand())) {
 			// setVisible(false);
 			int index = frame.getLibCombo().getSelectedIndex();
-			if (index == 0) // ´Ê¿âÖĞµÄÄ¬ÈÏ´Ê¿âÎŞ·¨É¾³ı
+			if (index == 0) // è¯åº“ä¸­çš„é»˜è®¤è¯åº“æ— æ³•åˆ é™¤
 			{
-				new MessageFrame("ÌáÊ¾", "ÎŞ·¨É¾³ıÄ¬ÈÏ´Ê¿â!");
-			} else // É¾³ı´Ê¿â¼°°ó¶¨µÄ×éºÏ¿òÖĞµÄÑ¡Ïî
+				new MessageFrame("æç¤º", "æ— æ³•åˆ é™¤é»˜è®¤è¯åº“!");
+			} else // åˆ é™¤è¯åº“åŠç»‘å®šçš„ç»„åˆæ¡†ä¸­çš„é€‰é¡¹
 			{
 				frame.getDicLibs().remove(index);
 				frame.getLibCombo().removeItemAt(index);
-				frame.setCurrentDicLib(frame.getDicLibs().get(0)); // ½«´Ê¿âÖĞµÄÄ¬ÈÏ´Ê¿âÉèÎªµ±Ç°´Ê¿â
-				frame.receiveMessage(); // Ë¢ĞÂÖ÷½çÃæ
+				frame.setCurrentDicLib(frame.getDicLibs().get(0)); // å°†è¯åº“ä¸­çš„é»˜è®¤è¯åº“è®¾ä¸ºå½“å‰è¯åº“
+				frame.receiveMessage(); // åˆ·æ–°ä¸»ç•Œé¢
 				setVisible(false);
 			}
 		}
 
-		if ("È¡Ïû".equals(arg0.getActionCommand())) {
+		if ("å–æ¶ˆ".equals(arg0.getActionCommand())) {
 			setVisible(false);
 		}
 	}

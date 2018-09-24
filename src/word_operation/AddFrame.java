@@ -1,4 +1,4 @@
-package word_operation;
+ï»¿package word_operation;
 
 import java.awt.event.ActionEvent;
 
@@ -16,7 +16,7 @@ public class AddFrame extends WordFrame {
 	MainFrame frame;
 
 	public AddFrame(MainFrame frame) {
-		super("Ìí¼Óµ¥´Ê");
+		super("æ·»åŠ å•è¯");
 		this.frame = frame;
 
 		libText.setEditable(false);
@@ -26,7 +26,7 @@ public class AddFrame extends WordFrame {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		if ("È·¶¨".equals(arg0.getActionCommand())) {
+		if ("ç¡®å®š".equals(arg0.getActionCommand())) {
 			// setVisible(false);
 			if (!originText.getText().isEmpty()) {
 				setVisible(false);
@@ -39,11 +39,11 @@ public class AddFrame extends WordFrame {
 				frame.getCurrentDicLib().sort(false);
 				frame.receiveMessage();
 			} else {
-				new MessageFrame("ÌáÊ¾", "Çë¼üÈëµ¥´ÊÔ­ĞÎ!");
+				new MessageFrame("æç¤º", "è¯·é”®å…¥å•è¯åŸå½¢!");
 			}
 		}
 
-		if ("È¡Ïû".equals(arg0.getActionCommand())) {
+		if ("å–æ¶ˆ".equals(arg0.getActionCommand())) {
 			setVisible(false);
 		}
 	}

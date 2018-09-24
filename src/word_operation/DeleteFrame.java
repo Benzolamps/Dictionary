@@ -1,4 +1,4 @@
-package word_operation;
+锘縫ackage word_operation;
 
 import java.awt.event.ActionEvent;
 
@@ -17,7 +17,7 @@ public class DeleteFrame extends WordFrame {
 	private MainFrame frame;
 
 	public DeleteFrame(MainFrame frame) {
-		super("删除单词");
+		super("鍒犻櫎鍗曡瘝");
 		this.frame = frame;
 
 		libText.setEditable(false);
@@ -35,7 +35,7 @@ public class DeleteFrame extends WordFrame {
 	}
 
 	private JLabel createMessageLabel() {
-		JLabel messageLabel = new JLabel("确定要删除当前单词吗?");
+		JLabel messageLabel = new JLabel("纭畾瑕佸垹闄ゅ綋鍓嶅崟璇嶅悧?");
 		messageLabel.setBounds(10, 215, getContentPane().getWidth() - 20, 50);
 
 		return messageLabel;
@@ -44,13 +44,13 @@ public class DeleteFrame extends WordFrame {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		if ("确定".equals(arg0.getActionCommand())) {
+		if ("纭畾".equals(arg0.getActionCommand())) {
 			setVisible(false);
 			frame.getCurrentDicLib().remove(frame.getWordList().getSelectedIndex());
 			frame.receiveMessage();
 		}
 
-		if ("取消".equals(arg0.getActionCommand())) {
+		if ("鍙栨秷".equals(arg0.getActionCommand())) {
 			setVisible(false);
 		}
 	}

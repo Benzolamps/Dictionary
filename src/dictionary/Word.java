@@ -1,15 +1,15 @@
-package dictionary;
+ï»¿package dictionary;
 
 /**
- * µ¥´ÊÀà
+ * å•è¯ç±»
  * 
  * @author Benzolamps
  *
  */
-public class Word implements Comparable<Word> { // ÊµÏÖComparable½Ó¿Ú£¬·½±ãÅÅĞò
+public class Word implements Comparable<Word> { // å®ç°Comparableæ¥å£ï¼Œæ–¹ä¾¿æ’åº
 
-	private String origin; // µ¥´Ê
-	private String meaning; // ÊÍÒå
+	private String origin; // å•è¯
+	private String meaning; // é‡Šä¹‰
 
 	public Word() {
 		origin = "";
@@ -43,9 +43,9 @@ public class Word implements Comparable<Word> { // ÊµÏÖComparable½Ó¿Ú£¬·½±ãÅÅĞò
 
 	@Override
 	/**
-	 * ÖØĞ´ComparableµÄcompareTo(Object otherObject)·½·¨£¬²ÉÓÃµ¥´Ê×Ö·û´®µÄ°´×ÖµäË³ĞòÅÅĞò£¨ºöÂÔ´óĞ¡Ğ´£©
+	 * é‡å†™Comparableçš„compareTo(Object otherObject)æ–¹æ³•ï¼Œé‡‡ç”¨å•è¯å­—ç¬¦ä¸²çš„æŒ‰å­—å…¸é¡ºåºæ’åºï¼ˆå¿½ç•¥å¤§å°å†™ï¼‰
 	 * 
-	 * @return ·µ»ØoriginÓëother.originµÄ°´×ÖµäË³ĞòÅÅĞò£¨ºöÂÔ´óĞ¡Ğ´£©½á¹û
+	 * @return è¿”å›originä¸other.originçš„æŒ‰å­—å…¸é¡ºåºæ’åºï¼ˆå¿½ç•¥å¤§å°å†™ï¼‰ç»“æœ
 	 */
 	public int compareTo(Word other) {
 		return origin.compareToIgnoreCase(other.origin);

@@ -1,4 +1,4 @@
-package main;
+ï»¿package main;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,8 +37,8 @@ import word_operation.DeleteFrame;
 import word_operation.EditFrame;
 
 /**
- * Ö÷½çÃæÊÇJFrameµÄ×ÓÀà£¬ÊµÏÖÁËDocumentListener, ListSelectionListener, ActionListener,
- * ItemListener, MouseListener, Runnable½Ó¿Ú
+ * ä¸»ç•Œé¢æ˜¯JFrameçš„å­ç±»ï¼Œå®ç°äº†DocumentListener, ListSelectionListener, ActionListener,
+ * ItemListener, MouseListener, Runnableæ¥å£
  * 
  * @author Benzolamps
  *
@@ -47,23 +47,23 @@ import word_operation.EditFrame;
 public class MainFrame extends JFrame
 		implements DocumentListener, ListSelectionListener, ActionListener, ItemListener, MouseListener, Runnable {
 	private static final long serialVersionUID = 776572726716394096L;
-	private Vector<DicLib> dicLibs = new Vector<DicLib>(); // ´æ´¢´Ê¿âµÄÏòÁ¿
-	private DicLib currentDicLib = new DicLib("Ä¬ÈÏ´Ê¿â");; // Ö¸Ïòµ±Ç°´Ê¿â
-	private JMenuBar menuBar; // ²Ëµ¥À¸
-	// ÎÄ¼ş¡¢±à¼­¶¥²ã²Ëµ¥£¬µ¯³öÊ½²Ëµ¥µÄ×Ó²Ëµ¥£¬ÒÆ¶¯¸´ÖÆÊµÊ±¸üĞÂ²Ëµ¥
-	// µ¯³öÊ½²Ëµ¥µÄ×Ó²Ëµ¥½á¹¹Óë±à¼­²Ëµ¥ÍêÈ«ÏàÍ¬
+	private Vector<DicLib> dicLibs = new Vector<DicLib>(); // å­˜å‚¨è¯åº“çš„å‘é‡
+	private DicLib currentDicLib = new DicLib("é»˜è®¤è¯åº“");; // æŒ‡å‘å½“å‰è¯åº“
+	private JMenuBar menuBar; // èœå•æ 
+	// æ–‡ä»¶ã€ç¼–è¾‘é¡¶å±‚èœå•ï¼Œå¼¹å‡ºå¼èœå•çš„å­èœå•ï¼Œç§»åŠ¨å¤åˆ¶å®æ—¶æ›´æ–°èœå•
+	// å¼¹å‡ºå¼èœå•çš„å­èœå•ç»“æ„ä¸ç¼–è¾‘èœå•å®Œå…¨ç›¸åŒ
 	private CloneableMenu fileMenu, editMenu, forPopupMenu, activeMenu[];
-	private JPopupMenu listMenu; // µ¯³öÊ½²Ëµ¥
-	private JComboBox libCombo = new JComboBox(); // ÏÔÊ¾ËùÓĞ´Ê¿â
-	// private JTextField showText; // ÏÔÊ¾ÊÍÒå
-	private JEditorPane showText; // ÏÔÊ¾ÊÍÒå
-	private JScrollPane showPane; // showTextµÄÈİÆ÷£¬º¬ÓĞ´¹Ö±¹ö¶¯Ìõ
-	private JTextField wordSeeked; // ²éÑ¯µ¥´ÊÓÃµÄÎÄ±¾¿ò
-	private JList wordList = new JList(currentDicLib); // ÏÔÊ¾µ±Ç°´Ê¿âµÄµ¥´ÊÁĞ±í
-	private JScrollPane wordPane; // wordListµÄÈİÆ÷£¬º¬ÓĞ´¹Ö±¹ö¶¯Ìõ
+	private JPopupMenu listMenu; // å¼¹å‡ºå¼èœå•
+	private JComboBox libCombo = new JComboBox(); // æ˜¾ç¤ºæ‰€æœ‰è¯åº“
+	// private JTextField showText; // æ˜¾ç¤ºé‡Šä¹‰
+	private JEditorPane showText; // æ˜¾ç¤ºé‡Šä¹‰
+	private JScrollPane showPane; // showTextçš„å®¹å™¨ï¼Œå«æœ‰å‚ç›´æ»šåŠ¨æ¡
+	private JTextField wordSeeked; // æŸ¥è¯¢å•è¯ç”¨çš„æ–‡æœ¬æ¡†
+	private JList wordList = new JList(currentDicLib); // æ˜¾ç¤ºå½“å‰è¯åº“çš„å•è¯åˆ—è¡¨
+	private JScrollPane wordPane; // wordListçš„å®¹å™¨ï¼Œå«æœ‰å‚ç›´æ»šåŠ¨æ¡
 
 	public MainFrame() throws IOException {
-		super("µç×ÓÓ¢ºº´Êµä");
+		super("ç”µå­è‹±æ±‰è¯å…¸");
 		setLayout(null);
 		setSize(800, 600);
 		setVisible(true);
@@ -111,45 +111,45 @@ public class MainFrame extends JFrame
 	}
 
 	/**
-	 * ´´½¨Ä¬ÈÏ´Ê¿â
+	 * åˆ›å»ºé»˜è®¤è¯åº“
 	 * 
 	 * @throws IOException
 	 */
 	private void createDefaultDicLib() throws IOException {
-		// currentDicLib.add(new Word("student", "Ñ§Éú"));
-		// currentDicLib.add(new Word("computer", "¼ÆËã»ú"));
+		// currentDicLib.add(new Word("student", "å­¦ç”Ÿ"));
+		// currentDicLib.add(new Word("computer", "è®¡ç®—æœº"));
 		dicLibs.add(currentDicLib);
 		listMenu.setEnabled(false);
 		libCombo.setEnabled(false);
 		wordSeeked.setEnabled(false);
 		fileMenu.setEnabled(false);
 		editMenu.setEnabled(false);
-		Thread t = new Thread(this); // ¿ª±ÙÒ»¸öÏß³Ì£¬ÓÃÓÚÔØÈëÄ¬ÈÏ´Ê¿â
+		Thread t = new Thread(this); // å¼€è¾Ÿä¸€ä¸ªçº¿ç¨‹ï¼Œç”¨äºè½½å…¥é»˜è®¤è¯åº“
 		t.start();
 	}
 
 	private JMenuBar createMenuBar() {
 		menuBar = new JMenuBar();
 
-		fileMenu = new CloneableMenu("ÎÄ¼ş(F)", this);
+		fileMenu = new CloneableMenu("æ–‡ä»¶(F)", this);
 		fileMenu.setMnemonic(KeyEvent.VK_F);
 
-		createOneMenuItem("ĞÂ½¨´Ê¿â(N)", KeyEvent.VK_N, fileMenu);
-		createOneMenuItem("É¾³ıµ±Ç°´Ê¿â(D)", KeyEvent.VK_D, fileMenu);
+		createOneMenuItem("æ–°å»ºè¯åº“(N)", KeyEvent.VK_N, fileMenu);
+		createOneMenuItem("åˆ é™¤å½“å‰è¯åº“(D)", KeyEvent.VK_D, fileMenu);
 		fileMenu.addSeparator();
-		createOneMenuItem("½«´Ê¿â±¸·İµ½ÎÄ¼ş(B)", KeyEvent.VK_B, fileMenu);
-		createOneMenuItem("´ÓÎÄ¼şÖĞ»¹Ô­´Ê¿â(R)", KeyEvent.VK_R, fileMenu);
+		createOneMenuItem("å°†è¯åº“å¤‡ä»½åˆ°æ–‡ä»¶(B)", KeyEvent.VK_B, fileMenu);
+		createOneMenuItem("ä»æ–‡ä»¶ä¸­è¿˜åŸè¯åº“(R)", KeyEvent.VK_R, fileMenu);
 		menuBar.add(fileMenu);
 
-		editMenu = new CloneableMenu("±à¼­(E)", this);
+		editMenu = new CloneableMenu("ç¼–è¾‘(E)", this);
 		editMenu.setMnemonic(KeyEvent.VK_E);
-		createOneMenuItem("Ìí¼Óµ¥´Ê(A)", KeyEvent.VK_A, editMenu);
-		createOneMenuItem("É¾³ıµ¥´Ê(D)", KeyEvent.VK_D, editMenu);
-		createOneMenuItem("ĞŞ¸Äµ¥´Ê(M)", KeyEvent.VK_M, editMenu);
+		createOneMenuItem("æ·»åŠ å•è¯(A)", KeyEvent.VK_A, editMenu);
+		createOneMenuItem("åˆ é™¤å•è¯(D)", KeyEvent.VK_D, editMenu);
+		createOneMenuItem("ä¿®æ”¹å•è¯(M)", KeyEvent.VK_M, editMenu);
 		editMenu.addSeparator();
 		activeMenu = new CloneableMenu[2];
-		activeMenu[0] = createOneSubMenu("¸´ÖÆµ¥´Êµ½´Ê¿â(C)", KeyEvent.VK_C, editMenu);
-		activeMenu[1] = createOneSubMenu("ÒÆ¶¯µ¥´Êµ½´Ê¿â(M)", KeyEvent.VK_M, editMenu);
+		activeMenu[0] = createOneSubMenu("å¤åˆ¶å•è¯åˆ°è¯åº“(C)", KeyEvent.VK_C, editMenu);
+		activeMenu[1] = createOneSubMenu("ç§»åŠ¨å•è¯åˆ°è¯åº“(M)", KeyEvent.VK_M, editMenu);
 		createActiveMenuItem();
 		menuBar.add(editMenu);
 
@@ -162,11 +162,11 @@ public class MainFrame extends JFrame
 	}
 
 	/**
-	 * ¼ò±ãÊéĞ´£¬´´½¨Ò»¸ö²Ëµ¥Ïî
+	 * ç®€ä¾¿ä¹¦å†™ï¼Œåˆ›å»ºä¸€ä¸ªèœå•é¡¹
 	 * 
-	 * @param label ²Ëµ¥Ïî±êÇ©×Ö·û´®
-	 * @param mnemonic ·ÃÎÊ¼ü
-	 * @param menu ±»¼ÓÈëµÄ²Ëµ¥
+	 * @param label èœå•é¡¹æ ‡ç­¾å­—ç¬¦ä¸²
+	 * @param mnemonic è®¿é—®é”®
+	 * @param menu è¢«åŠ å…¥çš„èœå•
 	 * @return
 	 */
 	private JMenuItem createOneMenuItem(String label, int mnemonic, JMenu menu) {
@@ -180,11 +180,11 @@ public class MainFrame extends JFrame
 	}
 
 	/**
-	 * ¼ò±ãÊéĞ´£¬´´½¨Ò»¸ö×Ó²Ëµ¥
+	 * ç®€ä¾¿ä¹¦å†™ï¼Œåˆ›å»ºä¸€ä¸ªå­èœå•
 	 * 
-	 * @param label ×Ó²Ëµ¥±êÇ©×Ö·û´®
-	 * @param mnemonic ·ÃÎÊ¼ü
-	 * @param menu ±»¼ÓÈëµÄ²Ëµ¥
+	 * @param label å­èœå•æ ‡ç­¾å­—ç¬¦ä¸²
+	 * @param mnemonic è®¿é—®é”®
+	 * @param menu è¢«åŠ å…¥çš„èœå•
 	 * @return
 	 */
 	private CloneableMenu createOneSubMenu(String label, int mnemonic, JMenu menu) {
@@ -238,7 +238,7 @@ public class MainFrame extends JFrame
 	}
 
 	/**
-	 * ´´½¨¸´ÖÆ¡¢ÒÆ¶¯µ¥´ÊµÄÊµÊ±¸üĞÂ²Ëµ¥Ïî
+	 * åˆ›å»ºå¤åˆ¶ã€ç§»åŠ¨å•è¯çš„å®æ—¶æ›´æ–°èœå•é¡¹
 	 */
 	public void createActiveMenuItem() {
 		for (int i = 0; i < activeMenu.length; i++) {
@@ -251,13 +251,13 @@ public class MainFrame extends JFrame
 			}
 			if (dicLibs.size() != 1)
 				activeMenu[i].addSeparator();
-			JMenuItem menuTemp = createOneMenuItem("ĞÂ½¨´Ê¿â(N)", KeyEvent.VK_N, activeMenu[i]);
+			JMenuItem menuTemp = createOneMenuItem("æ–°å»ºè¯åº“(N)", KeyEvent.VK_N, activeMenu[i]);
 			menuTemp.addActionListener(new MyAction(this, menuTemp, i == 0 ? false : true));
 		}
 	}
 
 	/**
-	 * Ë¢ĞÂÖ÷½çÃæ
+	 * åˆ·æ–°ä¸»ç•Œé¢
 	 */
 	public void receiveMessage() {
 		wordList.setListData(currentDicLib);
@@ -278,33 +278,33 @@ public class MainFrame extends JFrame
 
 	@Override
 	/**
-	 * ÖØĞ´ListSelectionListenerµÄvalueChanged(ListSelectionEvent
-	 * arg0)µÄ·½·¨£¬ÓÃÓÚÔÚshowTextÖĞÏÔÊ¾ÒÑÑ¡ÖĞµ¥´ÊµÄÊÍÒå
+	 * é‡å†™ListSelectionListenerçš„valueChanged(ListSelectionEvent
+	 * arg0)çš„æ–¹æ³•ï¼Œç”¨äºåœ¨showTextä¸­æ˜¾ç¤ºå·²é€‰ä¸­å•è¯çš„é‡Šä¹‰
 	 */
 	public void valueChanged(ListSelectionEvent arg0) {
 		// TODO Auto-generated method stub
 		if (wordList.getSelectedIndex() != -1) {
 
 			showText.setText(currentDicLib.get(wordList.getSelectedIndex()).getMeaning());
-			showText.setCaretPosition(0); // ½«¹ö¶¯ÌõÖÃÓÚ×îÉÏ·½
+			showText.setCaretPosition(0); // å°†æ»šåŠ¨æ¡ç½®äºæœ€ä¸Šæ–¹
 		}
 	}
 
 	/*
-	 * ÏìÓ¦wordSeekedµÄÊÂ¼ş£¬½«µ¥´Ê¶¨Î»µ½²éÑ¯µÄµ¥´Ê
+	 * å“åº”wordSeekedçš„äº‹ä»¶ï¼Œå°†å•è¯å®šä½åˆ°æŸ¥è¯¢çš„å•è¯
 	 */
 	private void seek() {
 		int index = currentDicLib.index(wordSeeked.getText());
 		if (index != -1) {
 			wordList.setSelectedIndex(index);
 			wordList.ensureIndexIsVisible(currentDicLib.size() - 1);
-			wordList.ensureIndexIsVisible(index); // ¹ö¶¯¹ö¶¯Ìõ£¬±£Ö¤ÓÃ»§¿ÉÒÔ¿´µ½µ±Ç°µ¥´Ê
+			wordList.ensureIndexIsVisible(index); // æ»šåŠ¨æ»šåŠ¨æ¡ï¼Œä¿è¯ç”¨æˆ·å¯ä»¥çœ‹åˆ°å½“å‰å•è¯
 		}
 	}
 
 	@Override
 	/*
-	 * ÖØĞ´DocumentListenerµÄchangedUpdate(DocumentEvent arg0)·½·¨£¬ÓÃÓÚ½«µ¥´Ê¶¨Î»µ½²éÑ¯µÄµ¥´Ê
+	 * é‡å†™DocumentListenerçš„changedUpdate(DocumentEvent arg0)æ–¹æ³•ï¼Œç”¨äºå°†å•è¯å®šä½åˆ°æŸ¥è¯¢çš„å•è¯
 	 */
 	public void changedUpdate(DocumentEvent arg0) {
 		// TODO Auto-generated method stub
@@ -312,7 +312,7 @@ public class MainFrame extends JFrame
 	}
 
 	/*
-	 * ÖØĞ´DocumentListenerµÄinsertUpdate(DocumentEvent arg0)·½·¨£¬ÓÃÓÚ½«µ¥´Ê¶¨Î»µ½²éÑ¯µÄµ¥´Ê
+	 * é‡å†™DocumentListenerçš„insertUpdate(DocumentEvent arg0)æ–¹æ³•ï¼Œç”¨äºå°†å•è¯å®šä½åˆ°æŸ¥è¯¢çš„å•è¯
 	 */
 	@Override
 	public void insertUpdate(DocumentEvent arg0) {
@@ -321,7 +321,7 @@ public class MainFrame extends JFrame
 	}
 
 	/*
-	 * ÖØĞ´DocumentListenerµÄremoveUpdate(DocumentEvent arg0)·½·¨£¬ÓÃÓÚ½«µ¥´Ê¶¨Î»µ½²éÑ¯µÄµ¥´Ê
+	 * é‡å†™DocumentListenerçš„removeUpdate(DocumentEvent arg0)æ–¹æ³•ï¼Œç”¨äºå°†å•è¯å®šä½åˆ°æŸ¥è¯¢çš„å•è¯
 	 */
 	@Override
 	public void removeUpdate(DocumentEvent arg0) {
@@ -330,52 +330,52 @@ public class MainFrame extends JFrame
 	}
 
 	/*
-	 * ÏìÓ¦°´Å¥£¬²Ëµ¥ÏîÊ±¼ä
+	 * å“åº”æŒ‰é’®ï¼Œèœå•é¡¹æ—¶é—´
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		// Ìí¼Ó¡¢É¾³ı¡¢ĞŞ¸Äµ¥´Ê
-		if ("Ìí¼Óµ¥´Ê(A)".equals(arg0.getActionCommand())) {
+		// æ·»åŠ ã€åˆ é™¤ã€ä¿®æ”¹å•è¯
+		if ("æ·»åŠ å•è¯(A)".equals(arg0.getActionCommand())) {
 			new AddFrame(this).setVisible(true);
 		}
 
-		if ("É¾³ıµ¥´Ê(D)".equals(arg0.getActionCommand())) {
+		if ("åˆ é™¤å•è¯(D)".equals(arg0.getActionCommand())) {
 			if (wordList.getSelectedIndex() != -1) {
 				new DeleteFrame(this).setVisible(true);
-			} else { // Ã»ÓĞµ¥´ÊÑ¡ÖĞ
-				new MessageFrame("ÌáÊ¾", "ÇëÏÈÑ¡ÖĞÒªÉ¾³ıµÄµ¥´Ê!").setVisible(true);
+			} else { // æ²¡æœ‰å•è¯é€‰ä¸­
+				new MessageFrame("æç¤º", "è¯·å…ˆé€‰ä¸­è¦åˆ é™¤çš„å•è¯!").setVisible(true);
 			}
 		}
 
-		if ("ĞŞ¸Äµ¥´Ê(M)".equals(arg0.getActionCommand())) {
+		if ("ä¿®æ”¹å•è¯(M)".equals(arg0.getActionCommand())) {
 			if (wordList.getSelectedIndex() != -1) {
 				new EditFrame(this).setVisible(true);
-			} else { // Ã»ÓĞµ¥´ÊÑ¡ÖĞ
-				new MessageFrame("ÌáÊ¾", "ÇëÏÈÑ¡ÖĞÒªĞŞ¸ÄµÄµ¥´Ê!").setVisible(true);
+			} else { // æ²¡æœ‰å•è¯é€‰ä¸­
+				new MessageFrame("æç¤º", "è¯·å…ˆé€‰ä¸­è¦ä¿®æ”¹çš„å•è¯!").setVisible(true);
 			}
 		}
 
-		if ("ĞÂ½¨´Ê¿â(N)".equals(arg0.getActionCommand())) {
+		if ("æ–°å»ºè¯åº“(N)".equals(arg0.getActionCommand())) {
 			new NewFrame(this).setVisible(true);
 		}
 
-		if ("É¾³ıµ±Ç°´Ê¿â(D)".equals(arg0.getActionCommand())) {
+		if ("åˆ é™¤å½“å‰è¯åº“(D)".equals(arg0.getActionCommand())) {
 			new DropFrame(this).setVisible(true);
 		}
 
-		if ("´ÓÎÄ¼şÖĞ»¹Ô­´Ê¿â(R)".equals(arg0.getActionCommand())) {
+		if ("ä»æ–‡ä»¶ä¸­è¿˜åŸè¯åº“(R)".equals(arg0.getActionCommand())) {
 			new FileFrame(this, false).setVisible(true);
 		}
 
-		if ("½«´Ê¿â±¸·İµ½ÎÄ¼ş(B)".equals(arg0.getActionCommand())) {
+		if ("å°†è¯åº“å¤‡ä»½åˆ°æ–‡ä»¶(B)".equals(arg0.getActionCommand())) {
 			new FileFrame(this, true).setVisible(true);
 		}
 
 	}
 
 	/*
-	 * ¸Ä±äµ±Ç°´Ê¿â
+	 * æ”¹å˜å½“å‰è¯åº“
 	 */
 	@Override
 	public void itemStateChanged(ItemEvent arg0) {
@@ -388,7 +388,7 @@ public class MainFrame extends JFrame
 	}
 
 	/*
-	 * ÏìÓ¦µ¥´ÊÁĞ±íµÄÓÒ»÷ÊÂ¼ş
+	 * å“åº”å•è¯åˆ—è¡¨çš„å³å‡»äº‹ä»¶
 	 */
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
@@ -417,15 +417,15 @@ public class MainFrame extends JFrame
 	}
 
 	/*
-	 * ÔØÈëÄ¬ÈÏ´Ê¿âµÄÏß³Ì
+	 * è½½å…¥é»˜è®¤è¯åº“çš„çº¿ç¨‹
 	 */
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
 		try {
-			showText.setText("ÕıÔÚÔØÈëÅ£½òÓ¢ºº¼òÃ÷´Êµä£®£®£®");
+			showText.setText("æ­£åœ¨è½½å…¥ç‰›æ´¥è‹±æ±‰ç®€æ˜è¯å…¸ï¼ï¼ï¼");
 			dicLibs.add(LoadProcess.readDic("res/e2c.dcl"));
-			showText.setText("ÕıÔÚÔØÈëÅ£½òººÓ¢¼òÃ÷´Êµä£®£®£®");
+			showText.setText("æ­£åœ¨è½½å…¥ç‰›æ´¥æ±‰è‹±ç®€æ˜è¯å…¸ï¼ï¼ï¼");
 			Thread.sleep(1000);
 			dicLibs.add(LoadProcess.readDic("res/c2e.dcl"));
 			receiveMessage();
@@ -437,7 +437,7 @@ public class MainFrame extends JFrame
 			e.printStackTrace();
 		}
 
-		showText.setText("ÒÑÍê³É£¡");
+		showText.setText("å·²å®Œæˆï¼");
 		listMenu.setEnabled(true);
 		wordSeeked.setEnabled(true);
 		libCombo.setEnabled(true);
@@ -446,7 +446,7 @@ public class MainFrame extends JFrame
 	}
 
 	/*
-	 * Ö÷·½·¨
+	 * ä¸»æ–¹æ³•
 	 */
 	public static void main(String args[]) throws IOException {
 		MainFrame.setDefaultLookAndFeelDecorated(true);

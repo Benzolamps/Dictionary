@@ -1,4 +1,4 @@
-package file_operation;
+ï»¿package file_operation;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -19,26 +19,26 @@ import dictionary.DicLib;
 import main.MainFrame;
 
 /**
- * ±¸·İ»¹Ô­½çÃæÊÇJFrameµÄ×ÓÀà£¬ÊµÏÖÁËActionListenerºÍRunnable½Ó¿Ú
+ * å¤‡ä»½è¿˜åŸç•Œé¢æ˜¯JFrameçš„å­ç±»ï¼Œå®ç°äº†ActionListenerå’ŒRunnableæ¥å£
  * 
  * @author Benzolamps
  *
  */
 public class RecoverFrame extends JFrame implements ActionListener, Runnable {
 	private static final long serialVersionUID = 4011819573993165113L;
-	private JTextField libText; // ÏÔÊ¾´Ê¿âÃû
-	private JLabel progressLabel; // ÏÔÊ¾±¸·İ»¹Ô­½ø¶È
+	private JTextField libText; // æ˜¾ç¤ºè¯åº“å
+	private JLabel progressLabel; // æ˜¾ç¤ºå¤‡ä»½è¿˜åŸè¿›åº¦
 	private JButton cancelButton;
 	private JButton okButton;
-	private MainFrame frame; // Ö÷½çÃæ
-	private String fileStr; // ÒÑÑ¡ÔñµÄÎÄ¼ş×Ö·û´®
-	private boolean isSave; // ËµÃ÷²Ù×÷ÊÇ·ñÊÇ½«´Ê¿âĞ´ÈëÎÄ¼ş£¬ÊÇÔòÆäÖµÎªtrue
-	private StringBuffer progress = new StringBuffer(); // ´æ´¢±¸·İ»¹Ô­½ø¶È×Ö·û´®µÄ»º³åÇø
-	private Timer timer; // ¶¨Ê±Æ÷£¬ÓÃÓÚÊµÊ±¸üĞÂ±¸·İ»¹Ô­½ø¶È
+	private MainFrame frame; // ä¸»ç•Œé¢
+	private String fileStr; // å·²é€‰æ‹©çš„æ–‡ä»¶å­—ç¬¦ä¸²
+	private boolean isSave; // è¯´æ˜æ“ä½œæ˜¯å¦æ˜¯å°†è¯åº“å†™å…¥æ–‡ä»¶ï¼Œæ˜¯åˆ™å…¶å€¼ä¸ºtrue
+	private StringBuffer progress = new StringBuffer(); // å­˜å‚¨å¤‡ä»½è¿˜åŸè¿›åº¦å­—ç¬¦ä¸²çš„ç¼“å†²åŒº
+	private Timer timer; // å®šæ—¶å™¨ï¼Œç”¨äºå®æ—¶æ›´æ–°å¤‡ä»½è¿˜åŸè¿›åº¦
 
 	public RecoverFrame(MainFrame frame, String fileStr, final boolean IS_SAVE) throws IOException {
-		// super("±¸·İ»¹Ô­´Ê¿â");
-		super(IS_SAVE ? "±¸·İ" : "»¹Ô­" + "´Ê¿â");
+		// super("å¤‡ä»½è¿˜åŸè¯åº“");
+		super(IS_SAVE ? "å¤‡ä»½" : "è¿˜åŸ" + "è¯åº“");
 		this.frame = frame;
 		this.fileStr = fileStr;
 		isSave = IS_SAVE;
@@ -53,21 +53,21 @@ public class RecoverFrame extends JFrame implements ActionListener, Runnable {
 		getContentPane().add(createOKButton());
 		timer = new Timer(1, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// ÏìÓ¦timerÊÂ¼ş
-				progressLabel.setText((isSave ? "±¸·İ" : "»¹Ô­") + "½ø¶È£º" + progress.toString());
+				// å“åº”timeräº‹ä»¶
+				progressLabel.setText((isSave ? "å¤‡ä»½" : "è¿˜åŸ") + "è¿›åº¦ï¼š" + progress.toString());
 			}
 		});
-		timer.start(); // ¶¨Ê±Æ÷¿ªÊ¼¹¤×÷
+		timer.start(); // å®šæ—¶å™¨å¼€å§‹å·¥ä½œ
 	}
 
 	private JTextField createLibText() throws IOException {
-		JLabel l = new JLabel("´Ê¿âÃû£º");
+		JLabel l = new JLabel("è¯åº“åï¼š");
 		l.setBounds(10, 10, 85, 20);
 		getContentPane().add(l);
 
 		libText = new JTextField();
 		libText.setBounds(100, 10, getContentPane().getWidth() - 110, 20);
-		// libTextÏÔÊ¾´Ê¿âÃû
+		// libTextæ˜¾ç¤ºè¯åº“å
 		if (!isSave) {
 			libText.setText(new DicFile(fileStr, isSave).getDicName());
 		} else {
@@ -86,7 +86,7 @@ public class RecoverFrame extends JFrame implements ActionListener, Runnable {
 	}
 
 	public JButton createCancelButton() {
-		cancelButton = new JButton("È¡Ïû");
+		cancelButton = new JButton("å–æ¶ˆ");
 		cancelButton.setMnemonic(KeyEvent.VK_C);
 		Point pt = new Point();
 		pt.x = 10;
@@ -97,7 +97,7 @@ public class RecoverFrame extends JFrame implements ActionListener, Runnable {
 	}
 
 	private JButton createOKButton() {
-		okButton = new JButton("È·¶¨");
+		okButton = new JButton("ç¡®å®š");
 		okButton.setMnemonic(KeyEvent.VK_O);
 		Point pt = new Point();
 		pt.x = getContentPane().getWidth() - 90;
@@ -109,23 +109,23 @@ public class RecoverFrame extends JFrame implements ActionListener, Runnable {
 
 	@Override
 	/**
-	 * ÖØĞ´ActionListenenerµÄactionPerformed(ActionEvent arg0)·½·¨£¬ÓÃÓÚÏìÓ¦timerºÍ°´Å¥ÊÂ¼ş
+	 * é‡å†™ActionListenenerçš„actionPerformed(ActionEvent arg0)æ–¹æ³•ï¼Œç”¨äºå“åº”timerå’ŒæŒ‰é’®äº‹ä»¶
 	 */
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 
-		if ("È·¶¨".equals(arg0.getActionCommand())) {
+		if ("ç¡®å®š".equals(arg0.getActionCommand())) {
 			// setVisible(false);
-			new Thread(this).start(); // ¿ª±ÙÒ»¸öÏß³Ì£¬Íê³É±¸·İ»¹Ô­²Ù×÷
+			new Thread(this).start(); // å¼€è¾Ÿä¸€ä¸ªçº¿ç¨‹ï¼Œå®Œæˆå¤‡ä»½è¿˜åŸæ“ä½œ
 		}
-		if ("È¡Ïû".equals(arg0.getActionCommand()) || "Íê³É".equals(arg0.getActionCommand())) {
+		if ("å–æ¶ˆ".equals(arg0.getActionCommand()) || "å®Œæˆ".equals(arg0.getActionCommand())) {
 			setVisible(false);
 		}
 	}
 
 	@Override
 	/**
-	 * ÖØĞ´Runnable½Ó¿ÚµÄrun()·½·¨£¬×÷Îª±¸·İ»¹Ô­²Ù×÷µÄÏß³Ì
+	 * é‡å†™Runnableæ¥å£çš„run()æ–¹æ³•ï¼Œä½œä¸ºå¤‡ä»½è¿˜åŸæ“ä½œçš„çº¿ç¨‹
 	 */
 	public void run() {
 		// TODO Auto-generated method stub
@@ -135,7 +135,7 @@ public class RecoverFrame extends JFrame implements ActionListener, Runnable {
 		DicFile f = null;
 		DicLib dicLib = null;
 		try {
-			// ÈôÎÄ¼şÃûµÄÀ©Õ¹Ãû²»ÊÇ.dcl£¬½«ÔÚÎÄ¼şÃûÄ©Î²¼ÓÉÏ".dcl"
+			// è‹¥æ–‡ä»¶åçš„æ‰©å±•åä¸æ˜¯.dclï¼Œå°†åœ¨æ–‡ä»¶åæœ«å°¾åŠ ä¸Š".dcl"
 			fileStr = (fileStr.endsWith(".dcl")) ? fileStr : (fileStr + ".dcl");
 			f = new DicFile(fileStr, false);
 		} catch (FileNotFoundException e1) {
@@ -147,40 +147,40 @@ public class RecoverFrame extends JFrame implements ActionListener, Runnable {
 		}
 		// finally
 
-		if (!isSave) // »¹Ô­²Ù×÷
+		if (!isSave) // è¿˜åŸæ“ä½œ
 		{
 			try {
-				dicLib = f.readDic(progress); // ¶ÁÈ¡ÎÄ¼ş£¬½«´Ê¿âĞÅÏ¢´æ´¢µ½dicLib¶ÔÏóÖĞ
+				dicLib = f.readDic(progress); // è¯»å–æ–‡ä»¶ï¼Œå°†è¯åº“ä¿¡æ¯å­˜å‚¨åˆ°dicLibå¯¹è±¡ä¸­
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			// finally
 			for (int i = 0; i < frame.getDicLibs().size(); i++) {
-				// Èô´Ê¿âÒÑ´æÔÚ£¬ÔòÉ¾³ı¸Ã´Ê¿â
+				// è‹¥è¯åº“å·²å­˜åœ¨ï¼Œåˆ™åˆ é™¤è¯¥è¯åº“
 				if (frame.getDicLibs().get(i).getName().equals(dicLib.getName())) {
 					frame.getDicLibs().remove(i);
 					frame.getLibCombo().removeItemAt(i);
 					break;
 				}
 			}
-			frame.getDicLibs().add(dicLib); // ¼ÓÈë¸Ã´Ê¿â
-		} else { // ±¸·İ²Ù×÷
+			frame.getDicLibs().add(dicLib); // åŠ å…¥è¯¥è¯åº“
+		} else { // å¤‡ä»½æ“ä½œ
 			try {
-				f.writeDic(frame.getCurrentDicLib(), progress); // ½«frame.currentDicLibµÄ´Ê¿âĞÅÏ¢Ğ´ÈëÎÄ¼ş
-				progressLabel.setText((isSave ? "±¸·İ" : "»¹Ô­") + "Íê³É£¡");
+				f.writeDic(frame.getCurrentDicLib(), progress); // å°†frame.currentDicLibçš„è¯åº“ä¿¡æ¯å†™å…¥æ–‡ä»¶
+				progressLabel.setText((isSave ? "å¤‡ä»½" : "è¿˜åŸ") + "å®Œæˆï¼");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				progressLabel.setText((isSave ? "±¸·İ" : "»¹Ô­") + "Ê§°Ü£¡");
+				progressLabel.setText((isSave ? "å¤‡ä»½" : "è¿˜åŸ") + "å¤±è´¥ï¼");
 			}
 			// finally
 		}
 		okButton.setEnabled(true);
 		cancelButton.setVisible(false);
-		timer.stop(); // ¶¨Ê±Æ÷Í£Ö¹¹¤×÷£¬±¸·İ»¹Ô­½ø¶ÈÍ£Ö¹ÊµÊ±ÏÔÊ¾
+		timer.stop(); // å®šæ—¶å™¨åœæ­¢å·¥ä½œï¼Œå¤‡ä»½è¿˜åŸè¿›åº¦åœæ­¢å®æ—¶æ˜¾ç¤º
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		okButton.setText("Íê³É");
-		frame.receiveMessage(); // Ë¢ĞÂÖ÷½çÃæ
+		okButton.setText("å®Œæˆ");
+		frame.receiveMessage(); // åˆ·æ–°ä¸»ç•Œé¢
 	}
 }

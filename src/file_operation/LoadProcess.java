@@ -1,4 +1,4 @@
-package file_operation;
+ï»¿package file_operation;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import dictionary.DicLib;
 import dictionary.Word;
 
 /**
- * ¼ÓÔØ¹ı³Ì
+ * åŠ è½½è¿‡ç¨‹
  * 
  * @author Benzolamps
  *
@@ -19,17 +19,17 @@ public class LoadProcess {
 		;
 		String s1 = "Dictionary name=";
 		String s2 = reader.readLine();
-		reader.readLine(); // ÔÙ¶ÁÈ¡Ò»¸ö¿ÕĞĞ£¬È»ºó¿ªÊ¼¶ÁÈ¡µÚÒ»¸öµ¥´Ê
+		reader.readLine(); // å†è¯»å–ä¸€ä¸ªç©ºè¡Œï¼Œç„¶åå¼€å§‹è¯»å–ç¬¬ä¸€ä¸ªå•è¯
 		DicLib dicLib = new DicLib(s2.replace(s1, ""));
 		while (true) {
 			String temp = reader.readLine();
 
 			if (temp != null) {
-				// Í¨¹ıÖÆ±í·ûÀ´·Ö¸î×Ö·û´®£¬ÓÃÓÚÇø·Öµ¥´ÊÓëÊÍÒå£¬Èç¹û¸ÃĞĞÃ»ÓĞÖÆ±í·û£¬Ôò»áÅ×³öIndexOutOfBoundsExceptionÒì³£
+				// é€šè¿‡åˆ¶è¡¨ç¬¦æ¥åˆ†å‰²å­—ç¬¦ä¸²ï¼Œç”¨äºåŒºåˆ†å•è¯ä¸é‡Šä¹‰ï¼Œå¦‚æœè¯¥è¡Œæ²¡æœ‰åˆ¶è¡¨ç¬¦ï¼Œåˆ™ä¼šæŠ›å‡ºIndexOutOfBoundsExceptionå¼‚å¸¸
 				Word word = null;
 				try {
 					word = new Word(temp.split("\t")[0], temp.split("\t")[1]);
-				} catch (IndexOutOfBoundsException e) { // µ±temp.split("\t")Êı×éÔ½½ç£¬ÍË³öwhileÑ­»·
+				} catch (IndexOutOfBoundsException e) { // å½“temp.split("\t")æ•°ç»„è¶Šç•Œï¼Œé€€å‡ºwhileå¾ªç¯
 					break;
 				}
 				dicLib.add(word);

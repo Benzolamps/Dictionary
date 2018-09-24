@@ -1,4 +1,4 @@
-package dictionary;
+ï»¿package dictionary;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -6,18 +6,18 @@ import java.util.Comparator;
 import java.util.Vector;
 
 /**
- * ´Ê¿âÀà
+ * è¯åº“ç±»
  * 
  * @author Benzolamps
  *
  */
-public class DicLib extends Vector<Word> { // ´Ê¿âÀàÊÇVector<Word>µÄ×ÓÀà
+public class DicLib extends Vector<Word> { // è¯åº“ç±»æ˜¯Vector<Word>çš„å­ç±»
 	private static final long serialVersionUID = -2809128821012099186L;
 
 	private String name;
 
 	/**
-	 * Ä¬ÈÏ¹¹Ôì·½·¨£¬ Ä¬ÈÏ´Ê¿âÃûÎª"New Dictionary Library"
+	 * é»˜è®¤æ„é€ æ–¹æ³•ï¼Œ é»˜è®¤è¯åº“åä¸º"New Dictionary Library"
 	 */
 	public DicLib() {
 		name = "New Dictionary Library";
@@ -51,14 +51,14 @@ public class DicLib extends Vector<Word> { // ´Ê¿âÀàÊÇVector<Word>µÄ×ÓÀà
 	}
 
 	/**
-	 * »ñÈ¡ÒÔbar¿ªÍ·µÄµÚÒ»¸öµ¥´Ê
+	 * è·å–ä»¥barå¼€å¤´çš„ç¬¬ä¸€ä¸ªå•è¯
 	 * 
-	 * @param bar µ¥´ÊÊ××ÖÄ¸
-	 * @return µ¥´ÊÔÚ´Ê¿âÖĞµÄÎ»ÖÃ£¬Î´ÕÒµ½·µ»Ø-1
+	 * @param bar å•è¯é¦–å­—æ¯
+	 * @return å•è¯åœ¨è¯åº“ä¸­çš„ä½ç½®ï¼Œæœªæ‰¾åˆ°è¿”å›-1
 	 */
 	public int index(String bar) {
 		for (int i = 0; i < size(); i++) {
-			if (get(i).getOrigin().startsWith(bar)) { // ÅĞ¶Ïµ¥´ÊÊÇ·ñÒÔbar¿ªÍ·
+			if (get(i).getOrigin().startsWith(bar)) { // åˆ¤æ–­å•è¯æ˜¯å¦ä»¥barå¼€å¤´
 				return i;
 			}
 		}
@@ -66,9 +66,9 @@ public class DicLib extends Vector<Word> { // ´Ê¿âÀàÊÇVector<Word>µÄ×ÓÀà
 	}
 
 	/**
-	 * ¶Ô´Ê¿â½øĞĞÅÅĞò
+	 * å¯¹è¯åº“è¿›è¡Œæ’åº
 	 * 
-	 * @param isDesc µ±isDescÎªÕæÊ±£¬½µĞòÅÅĞò£»·´Ö®ÉıĞò
+	 * @param isDesc å½“isDescä¸ºçœŸæ—¶ï¼Œé™åºæ’åºï¼›åä¹‹å‡åº
 	 */
 	public void sort(boolean isDesc) {
 		if (isDesc) {

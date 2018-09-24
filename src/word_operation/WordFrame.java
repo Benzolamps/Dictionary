@@ -1,4 +1,4 @@
-package word_operation;
+ï»¿package word_operation;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -15,7 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 /**
- * ÓÉÓÚÈı¸ö½çÃæÀàËÆ£¬¹ÊÊ×ÏÈÉè¼ÆÆä¸¸Àà½çÃæ
+ * ç”±äºä¸‰ä¸ªç•Œé¢ç±»ä¼¼ï¼Œæ•…é¦–å…ˆè®¾è®¡å…¶çˆ¶ç±»ç•Œé¢
  * 
  * @author Benzolamps
  *
@@ -44,7 +44,7 @@ public abstract class WordFrame extends JFrame implements ActionListener {
 	}
 
 	private JTextField createLibText() {
-		JLabel libLabel = new JLabel("µ±Ç°´Ê¿â:");
+		JLabel libLabel = new JLabel("å½“å‰è¯åº“:");
 		libLabel.setBounds(10, 10, 95, 20);
 		getContentPane().add(libLabel);
 
@@ -54,7 +54,7 @@ public abstract class WordFrame extends JFrame implements ActionListener {
 	}
 
 	private JTextField createOriginText() {
-		JLabel originLabel = new JLabel("µ¥´Ê:");
+		JLabel originLabel = new JLabel("å•è¯:");
 		originLabel.setBounds(10, 50, 95, 20);
 		add(originLabel);
 
@@ -64,7 +64,7 @@ public abstract class WordFrame extends JFrame implements ActionListener {
 	}
 
 	private JScrollPane createMeaningPane() {
-		JLabel meaningLabel = new JLabel("ÊÍÒå:");
+		JLabel meaningLabel = new JLabel("é‡Šä¹‰:");
 		meaningLabel.setBounds(10, 90, 95, 20);
 		add(meaningLabel);
 
@@ -77,7 +77,7 @@ public abstract class WordFrame extends JFrame implements ActionListener {
 	}
 
 	public JButton createCancelButton() {
-		cancelButton = new JButton("È¡Ïû");
+		cancelButton = new JButton("å–æ¶ˆ");
 		cancelButton.setMnemonic(KeyEvent.VK_C);
 		Point pt = new Point();
 		pt.x = 10;
@@ -88,7 +88,7 @@ public abstract class WordFrame extends JFrame implements ActionListener {
 	}
 
 	private JButton createOKButton() {
-		okButton = new JButton("È·¶¨");
+		okButton = new JButton("ç¡®å®š");
 		okButton.setMnemonic(KeyEvent.VK_O);
 		Point pt = new Point();
 		pt.x = getContentPane().getWidth() - 90;

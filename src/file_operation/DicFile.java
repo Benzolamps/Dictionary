@@ -1,4 +1,4 @@
-package file_operation;
+ï»¿package file_operation;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,16 +12,16 @@ import dictionary.DicLib;
 import dictionary.Word;
 
 /**
- * ´Ê¿âÎÄ¼şÀà
+ * è¯åº“æ–‡ä»¶ç±»
  * 
  * @author Benzolamps
  *
  */
-public class DicFile extends File { // ¶¨Òå´Ê¿âÎÄ¼şÀàÊÇFileÀàµÄ×ÓÀà
+public class DicFile extends File { // å®šä¹‰è¯åº“æ–‡ä»¶ç±»æ˜¯Fileç±»çš„å­ç±»
 	private static final long serialVersionUID = -3007674007192114857L;
 
-	private BufferedReader raf = null; // ÓÃÓÚ´ÓÎÄ¼şÖĞ¶ÁÈ¡´Ê¿âĞÅÏ¢
-	private PrintWriter waf = null; // ÓÃÓÚ½«´Ê¿âĞÅÏ¢Ğ´ÈëÎÄ¼ş
+	private BufferedReader raf = null; // ç”¨äºä»æ–‡ä»¶ä¸­è¯»å–è¯åº“ä¿¡æ¯
+	private PrintWriter waf = null; // ç”¨äºå°†è¯åº“ä¿¡æ¯å†™å…¥æ–‡ä»¶
 
 	public DicFile(String pathName, boolean isWriter) throws IOException {
 		// TODO Auto-generated constructor stub
@@ -29,7 +29,7 @@ public class DicFile extends File { // ¶¨Òå´Ê¿âÎÄ¼şÀàÊÇFileÀàµÄ×ÓÀà
 	}
 
 	/**
-	 * ¶¨Òå´Ë¹¹Ôì·½·¨µÄÄ¿µÄÊÇ·½±ã½«´Ê¿âÎÄ¼ş¼ÓÈëÏîÄ¿£¬²¢Í¨¹ıURL×ª»¯ÎªURI¶ÁÈ¡ÎÄ¼ş
+	 * å®šä¹‰æ­¤æ„é€ æ–¹æ³•çš„ç›®çš„æ˜¯æ–¹ä¾¿å°†è¯åº“æ–‡ä»¶åŠ å…¥é¡¹ç›®ï¼Œå¹¶é€šè¿‡URLè½¬åŒ–ä¸ºURIè¯»å–æ–‡ä»¶
 	 */
 	public DicFile(URI uri, boolean isWriter) throws IOException {
 		// TODO Auto-generated constructor stub
@@ -37,53 +37,53 @@ public class DicFile extends File { // ¶¨Òå´Ê¿âÎÄ¼şÀàÊÇFileÀàµÄ×ÓÀà
 	}
 
 	/**
-	 * Í¨¹ı´ÓÎÄ¼şÖĞ¶ÁÈ¡µÚÒ»¸öÎÄ±¾ĞĞÀ´È·¶¨¸ÃÎÄ¼şÊÇ·ñÎªÊÊºÏÓÚÏîÄ¿Ê¹ÓÃµÄ´Ê¿âÎÄ¼ş£¬Èç¹û²»ÊÇ£¬·µ»Ønull£»Èç¹ûÊÇ£¬Ôò·µ»Ø´Ê¿âÃû
-	 * µ±ÎÄ¼şµÚÒ»¸öÎÄ±¾ĞĞÄÚÈİÎª"Dictionary name=´Ê¿âÃû"Ê±£¬²Å²»»á·µ»Ønull
+	 * é€šè¿‡ä»æ–‡ä»¶ä¸­è¯»å–ç¬¬ä¸€ä¸ªæ–‡æœ¬è¡Œæ¥ç¡®å®šè¯¥æ–‡ä»¶æ˜¯å¦ä¸ºé€‚åˆäºé¡¹ç›®ä½¿ç”¨çš„è¯åº“æ–‡ä»¶ï¼Œå¦‚æœä¸æ˜¯ï¼Œè¿”å›nullï¼›å¦‚æœæ˜¯ï¼Œåˆ™è¿”å›è¯åº“å
+	 * å½“æ–‡ä»¶ç¬¬ä¸€ä¸ªæ–‡æœ¬è¡Œå†…å®¹ä¸º"Dictionary name=è¯åº“å"æ—¶ï¼Œæ‰ä¸ä¼šè¿”å›null
 	 * 
-	 * @return Èç¹û¶ÁÈ¡´Ê¿âÎÄ¼ş³É¹¦£¬·µ»Ø´Ê¿âÃû£»·ñÔò·µ»Ønull
+	 * @return å¦‚æœè¯»å–è¯åº“æ–‡ä»¶æˆåŠŸï¼Œè¿”å›è¯åº“åï¼›å¦åˆ™è¿”å›null
 	 */
 	public String getDicName() throws IOException {
 		BufferedReader r = new BufferedReader(new FileReader(this));
 		String s1 = "Dictionary name=";
 		String s2 = r.readLine();
 		r.close();
-		if (!s2.startsWith(s1)) { // ÅĞ¶Ïs2ÊÇ·ñÒÔ"Dictionary name="¿ªÍ·
+		if (!s2.startsWith(s1)) { // åˆ¤æ–­s2æ˜¯å¦ä»¥"Dictionary name="å¼€å¤´
 			return null;
 		}
 		return s2.replace(s1, "");
 	}
 
 	/**
-	 * ´Ó×ÊÔ´ÖĞ¶ÁÈ¡´Ê¿âĞÅÏ¢£¬²¢·µ»ØÒ»¸ö´Ê¿â¶ÔÏó
+	 * ä»èµ„æºä¸­è¯»å–è¯åº“ä¿¡æ¯ï¼Œå¹¶è¿”å›ä¸€ä¸ªè¯åº“å¯¹è±¡
 	 * 
-	 * @param str ÓÃÓÚ±íÊ¾ÎÄ¼ş¶ÁÈ¡½ø¶ÈµÄ×Ö·û´®»º³åÇø£¬·½±ãÔÚºóÌ¨Ïß³ÌÖĞ¶¯Ì¬¸Ä±ä¶ÁÈ¡½ø¶È
-	 * @return ´Ê¿â¶ÔÏó
+	 * @param str ç”¨äºè¡¨ç¤ºæ–‡ä»¶è¯»å–è¿›åº¦çš„å­—ç¬¦ä¸²ç¼“å†²åŒºï¼Œæ–¹ä¾¿åœ¨åå°çº¿ç¨‹ä¸­åŠ¨æ€æ”¹å˜è¯»å–è¿›åº¦
+	 * @return è¯åº“å¯¹è±¡
 	 */
 	public DicLib readDic(StringBuffer str) throws IOException, IndexOutOfBoundsException {
 		raf = new BufferedReader(new FileReader(this));
 		String s1 = "Dictionary name=";
-		String s2 = raf.readLine(); // ¶ÁÈ¡ÎÄ¼şµÚÒ»ĞĞ
+		String s2 = raf.readLine(); // è¯»å–æ–‡ä»¶ç¬¬ä¸€è¡Œ
 		if (!s2.startsWith(s1)) {
 			return null;
 		}
 
-		raf.readLine(); // ÔÙ¶ÁÈ¡Ò»¸ö¿ÕĞĞ£¬È»ºó¿ªÊ¼¶ÁÈ¡µÚÒ»¸öµ¥´Ê
+		raf.readLine(); // å†è¯»å–ä¸€ä¸ªç©ºè¡Œï¼Œç„¶åå¼€å§‹è¯»å–ç¬¬ä¸€ä¸ªå•è¯
 		DicLib dicLib = new DicLib(s2.replace(s1, ""));
-		long l = 0; // ÓÃÓÚ×é³ÉÎÄ¼ş¶ÁÈ¡½ø¶È£¬±íÊ¾ÒÑ¶ÁÈ¡µÄÎÄ¼şÄÚÈİ´óĞ¡
+		long l = 0; // ç”¨äºç»„æˆæ–‡ä»¶è¯»å–è¿›åº¦ï¼Œè¡¨ç¤ºå·²è¯»å–çš„æ–‡ä»¶å†…å®¹å¤§å°
 		while (true) {
 			String temp = raf.readLine();
 
 			if (temp != null) {
-				l += temp.length(); // ¶ÁÈ¡Ò»ĞĞ£¬½«¸ÃĞĞµÄ´óĞ¡Ôö¼Óµ½l
+				l += temp.length(); // è¯»å–ä¸€è¡Œï¼Œå°†è¯¥è¡Œçš„å¤§å°å¢åŠ åˆ°l
 
-				// ½«lÓëÎÄ¼ş´óĞ¡µÄ±ÈÖµ×ª»¯Îª°Ù·ÖÊı£¬×÷Îª¶ÁÈ¡½ø¶È£¬²¢´æ´¢µ½×Ö·û´®»º³åÇøstr
+				// å°†lä¸æ–‡ä»¶å¤§å°çš„æ¯”å€¼è½¬åŒ–ä¸ºç™¾åˆ†æ•°ï¼Œä½œä¸ºè¯»å–è¿›åº¦ï¼Œå¹¶å­˜å‚¨åˆ°å­—ç¬¦ä¸²ç¼“å†²åŒºstr
 				str.replace(0, str.length(), String.format("%.2f%%", l / (double) length() * 100));
 
-				// Í¨¹ıÖÆ±í·ûÀ´·Ö¸î×Ö·û´®£¬ÓÃÓÚÇø·Öµ¥´ÊÓëÊÍÒå£¬Èç¹û¸ÃĞĞÃ»ÓĞÖÆ±í·û£¬Ôò»áÅ×³öIndexOutOfBoundsExceptionÒì³£
+				// é€šè¿‡åˆ¶è¡¨ç¬¦æ¥åˆ†å‰²å­—ç¬¦ä¸²ï¼Œç”¨äºåŒºåˆ†å•è¯ä¸é‡Šä¹‰ï¼Œå¦‚æœè¯¥è¡Œæ²¡æœ‰åˆ¶è¡¨ç¬¦ï¼Œåˆ™ä¼šæŠ›å‡ºIndexOutOfBoundsExceptionå¼‚å¸¸
 				Word word = null;
 				try {
 					word = new Word(temp.split("\t")[0], temp.split("\t")[1]);
-				} catch (IndexOutOfBoundsException e) { // µ±temp.split("\t")Êı×éÔ½½ç£¬ÍË³öwhileÑ­»·
+				} catch (IndexOutOfBoundsException e) { // å½“temp.split("\t")æ•°ç»„è¶Šç•Œï¼Œé€€å‡ºwhileå¾ªç¯
 					break;
 				}
 				dicLib.add(word);
@@ -96,22 +96,22 @@ public class DicFile extends File { // ¶¨Òå´Ê¿âÎÄ¼şÀàÊÇFileÀàµÄ×ÓÀà
 	}
 
 	/**
-	 * ½«´Ê¿âĞÅÏ¢Ğ´ÈëÎÄ¼ş
+	 * å°†è¯åº“ä¿¡æ¯å†™å…¥æ–‡ä»¶
 	 * 
-	 * @param dicLib ÒªĞ´ÈëµÄ´Ê¿â¶ÔÏó
-	 * @param str ÓÃÓÚ±íÊ¾ÎÄ¼şĞ´Èë½ø¶ÈµÄ×Ö·û´®»º³åÇø£¬·½±ãÔÚºóÌ¨Ïß³ÌÖĞ¶¯Ì¬¸Ä±äĞ´Èë½ø¶È
+	 * @param dicLib è¦å†™å…¥çš„è¯åº“å¯¹è±¡
+	 * @param str ç”¨äºè¡¨ç¤ºæ–‡ä»¶å†™å…¥è¿›åº¦çš„å­—ç¬¦ä¸²ç¼“å†²åŒºï¼Œæ–¹ä¾¿åœ¨åå°çº¿ç¨‹ä¸­åŠ¨æ€æ”¹å˜å†™å…¥è¿›åº¦
 	 */
 	public void writeDic(DicLib dicLib, StringBuffer str) throws IOException {
 		waf = new PrintWriter(new FileWriter(this));
-		waf.println("Dictionary name=" + dicLib.getName()); // ½«ÎÄ¼şµÚÒ»ĞĞĞ´Èë"Dictionary name=´Ê¿âÃû"
-		waf.println(); // Ğ´ÈëÒ»¸ö¿ÕĞĞ
+		waf.println("Dictionary name=" + dicLib.getName()); // å°†æ–‡ä»¶ç¬¬ä¸€è¡Œå†™å…¥"Dictionary name=è¯åº“å"
+		waf.println(); // å†™å…¥ä¸€ä¸ªç©ºè¡Œ
 		for (int i = 0; i < dicLib.size(); i++) {
-			// ¶¨ÒåÒ»¸öµ¥´ÊĞĞ£¨µ¥´Ê+ÖÆ±í·û+ÊÍÒå£©
+			// å®šä¹‰ä¸€ä¸ªå•è¯è¡Œï¼ˆå•è¯+åˆ¶è¡¨ç¬¦+é‡Šä¹‰ï¼‰
 			String temp = dicLib.get(i).getOrigin() + "\t" + dicLib.get(i).getMeaning();
 
-			waf.println(temp); // Ğ´ÈëÒ»ĞĞµ¥´Ê
+			waf.println(temp); // å†™å…¥ä¸€è¡Œå•è¯
 
-			// ½«Êı×éµ±Ç°Ë÷ÒıÓë´Ê¿â×ÜµÄ´óĞ¡µÄ±ÈÖµ×ª»¯Îª°Ù·ÖÊı£¬×÷ÎªĞ´Èë½ø¶È£¬²¢´æ´¢µ½×Ö·û´®»º³åÇøstr
+			// å°†æ•°ç»„å½“å‰ç´¢å¼•ä¸è¯åº“æ€»çš„å¤§å°çš„æ¯”å€¼è½¬åŒ–ä¸ºç™¾åˆ†æ•°ï¼Œä½œä¸ºå†™å…¥è¿›åº¦ï¼Œå¹¶å­˜å‚¨åˆ°å­—ç¬¦ä¸²ç¼“å†²åŒºstr
 			str.replace(0, str.length(), String.format("%.2f%%", i / (double) dicLib.size() * 100));
 		}
 		waf.close();

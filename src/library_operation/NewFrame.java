@@ -1,4 +1,4 @@
-package library_operation;
+ï»¿package library_operation;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -17,7 +17,7 @@ import main.MainFrame;
 import main.MessageFrame;
 
 /**
- * ´Ê¿âĞÂ½¨½çÃæÊÇJFrameµÄ×ÓÀà£¬ÊµÏÖÁËActionListener½Ó¿Ú
+ * è¯åº“æ–°å»ºç•Œé¢æ˜¯JFrameçš„å­ç±»ï¼Œå®ç°äº†ActionListeneræ¥å£
  * 
  * @author Benzolamps
  *
@@ -30,7 +30,7 @@ public class NewFrame extends JFrame implements ActionListener {
 	private JButton okButton;
 
 	public NewFrame(MainFrame frame) {
-		super("ĞÂ½¨´Ê¿â");
+		super("æ–°å»ºè¯åº“");
 		this.frame = frame;
 		setLayout(null);
 		setLocationRelativeTo(null);
@@ -43,7 +43,7 @@ public class NewFrame extends JFrame implements ActionListener {
 	}
 
 	public JTextField createNameText() {
-		JLabel nameLabel = new JLabel("´Ê¿âÃû:");
+		JLabel nameLabel = new JLabel("è¯åº“å:");
 		nameLabel.setBounds(10, 10, 95, 20);
 		getContentPane().add(nameLabel);
 
@@ -53,7 +53,7 @@ public class NewFrame extends JFrame implements ActionListener {
 	}
 
 	public JButton createCancelButton() {
-		cancelButton = new JButton("È¡Ïû");
+		cancelButton = new JButton("å–æ¶ˆ");
 		cancelButton.setMnemonic(KeyEvent.VK_C);
 		Point pt = new Point();
 		pt.x = 10;
@@ -64,7 +64,7 @@ public class NewFrame extends JFrame implements ActionListener {
 	}
 
 	public JButton createOKButton() {
-		okButton = new JButton("È·¶¨");
+		okButton = new JButton("ç¡®å®š");
 		okButton.setMnemonic(KeyEvent.VK_O);
 		Point pt = new Point();
 		pt.x = getContentPane().getWidth() - 90;
@@ -77,11 +77,11 @@ public class NewFrame extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		if ("È·¶¨".equals(arg0.getActionCommand())) {
+		if ("ç¡®å®š".equals(arg0.getActionCommand())) {
 			// setVisible(false);
-			if (nameText.getText().isEmpty()) // µ±´Ê¿âÃûÎª¿ÕÊ±£¬·¢³öÌáÊ¾ĞÅÏ¢
+			if (nameText.getText().isEmpty()) // å½“è¯åº“åä¸ºç©ºæ—¶ï¼Œå‘å‡ºæç¤ºä¿¡æ¯
 			{
-				new MessageFrame("ÌáÊ¾", "Çë¼üÈë´Ê¿âÃû!").setVisible(true);
+				new MessageFrame("æç¤º", "è¯·é”®å…¥è¯åº“å!").setVisible(true);
 			} else {
 				frame.getDicLibs().add(new DicLib(nameText.getText()));
 				frame.receiveMessage();
@@ -89,7 +89,7 @@ public class NewFrame extends JFrame implements ActionListener {
 			}
 		}
 
-		if ("È¡Ïû".equals(arg0.getActionCommand())) {
+		if ("å–æ¶ˆ".equals(arg0.getActionCommand())) {
 			setVisible(false);
 		}
 	}

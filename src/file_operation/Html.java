@@ -1,20 +1,20 @@
-package file_operation;
+ï»¿package file_operation;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * ´¦ÀíHTML×Ö·û´®
+ * å¤„ç†HTMLå­—ç¬¦ä¸²
  * 
  * @author Benzolamps
  *
  */
 public class Html {
-	// ¶¨ÒåHTML±êÇ©µÄÕıÔò±í´ïÊ½
+	// å®šä¹‰HTMLæ ‡ç­¾çš„æ­£åˆ™è¡¨è¾¾å¼
 	private static final String REGEX_SCRIPT = "<script[^>]*?>[\\s\\S]*?<\\/script>";
 	private static final String REGEX_STYLE = "<style[^>]*?>[\\s\\S]*?<\\/style>";
 	private static final String REGEX_HTML = "<[^>]+>";
-	private String htmlFormat; // HTML×Ö·û´®
+	private String htmlFormat; // HTMLå­—ç¬¦ä¸²
 
 	public Html(String htmlFormat) {
 		this.htmlFormat = htmlFormat;
@@ -29,7 +29,7 @@ public class Html {
 	}
 
 	/**
-	 * @return ·µ»ØhtmlFormatÈ¥³ıHTML±êÇ©ºóµÄ×Ö·û´®
+	 * @return è¿”å›htmlFormatå»é™¤HTMLæ ‡ç­¾åçš„å­—ç¬¦ä¸²
 	 */
 	public String filt() {
 		Pattern p_script = Pattern.compile(REGEX_SCRIPT, Pattern.CASE_INSENSITIVE);
@@ -46,6 +46,6 @@ public class Html {
 
 		htmlFormat = htmlFormat.replaceAll("&nbsp;", "");
 
-		return htmlFormat.trim(); // È¥µôËùÓĞ¿Õ¸ñ×Ö·û
+		return htmlFormat.trim(); // å»æ‰æ‰€æœ‰ç©ºæ ¼å­—ç¬¦
 	}
 }

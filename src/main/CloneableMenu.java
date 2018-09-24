@@ -1,4 +1,4 @@
-package main;
+ï»¿package main;
 
 import java.awt.event.ActionListener;
 
@@ -6,8 +6,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 /**
- * ¿É¿ËÂ¡µÄ²Ëµ¥ÊÇJMenuµÄ×ÓÀà£¬ÊµÏÖÁËCloneable½Ó¿Ú£»
- * Ò»¸ö²Ëµ¥µÄÒıÓÃÖ»ÄÜ±»Ò»¸ö×é¼şÑ¡ÖĞ£¬ĞèÒªÊ¹ÓÃ½á¹¹Ò»Ä£Ò»ÑùµÄ²Ëµ¥£¬¹Ê¿ª±Ù´Ë·½·¨
+ * å¯å…‹éš†çš„èœå•æ˜¯JMenuçš„å­ç±»ï¼Œå®ç°äº†Cloneableæ¥å£ï¼›
+ * ä¸€ä¸ªèœå•çš„å¼•ç”¨åªèƒ½è¢«ä¸€ä¸ªç»„ä»¶é€‰ä¸­ï¼Œéœ€è¦ä½¿ç”¨ç»“æ„ä¸€æ¨¡ä¸€æ ·çš„èœå•ï¼Œæ•…å¼€è¾Ÿæ­¤æ–¹æ³•
  * 
  * @author Benzolamps
  *
@@ -15,7 +15,7 @@ import javax.swing.JMenuItem;
 public class CloneableMenu extends JMenu implements Cloneable {
 	private static final long serialVersionUID = -7199663284269505961L;
 
-	MainFrame frame; // Ö÷½çÃæ
+	MainFrame frame; // ä¸»ç•Œé¢
 
 	public CloneableMenu(String name, MainFrame frame) {
 		super(name);
@@ -24,23 +24,23 @@ public class CloneableMenu extends JMenu implements Cloneable {
 
 
 	/*
-	 * ÖØĞ´Cloneable½Ó¿ÚµÄclone()·½·¨£¬µ±²Ëµ¥ÖĞµÄ×Ó²Ëµ¥È«²¿²ÉÓÃ¸ÃÀàÊ±£¬Í¨¹ıµİ¹éµÄ·½·¨Éî¶È¿ËÂ¡¸Ã²Ëµ¥
+	 * é‡å†™Cloneableæ¥å£çš„clone()æ–¹æ³•ï¼Œå½“èœå•ä¸­çš„å­èœå•å…¨éƒ¨é‡‡ç”¨è¯¥ç±»æ—¶ï¼Œé€šè¿‡é€’å½’çš„æ–¹æ³•æ·±åº¦å…‹éš†è¯¥èœå•
 	 */
 	@Override
 	public CloneableMenu clone() {
-		CloneableMenu cm = new CloneableMenu(getText(), frame); // ¿ËÂ¡²Ëµ¥Ãû
+		CloneableMenu cm = new CloneableMenu(getText(), frame); // å…‹éš†èœå•å
 		for (int i = 0; i < getItemCount(); i++) {
 			if (getItem(i) == null) {
-				cm.addSeparator(); // ¼ÓÈë·Ö¸ô·û
+				cm.addSeparator(); // åŠ å…¥åˆ†éš”ç¬¦
 			} else {
-				if (getItem(i).getClass().getName().equals("main.CloneableMenu")) { // µ±²Ëµ¥Îª¸ÃÀàµÄ¶ÔÏóÊ±£¬µİ¹éµ÷ÓÃ¸Ã·½·¨
+				if (getItem(i).getClass().getName().equals("main.CloneableMenu")) { // å½“èœå•ä¸ºè¯¥ç±»çš„å¯¹è±¡æ—¶ï¼Œé€’å½’è°ƒç”¨è¯¥æ–¹æ³•
 					CloneableMenu temp = ((CloneableMenu) getItem(i)).clone();
-					temp.setMnemonic(getItem(i).getMnemonic()); // ¿ËÂ¡¼ÓËÙ¼ü
+					temp.setMnemonic(getItem(i).getMnemonic()); // å…‹éš†åŠ é€Ÿé”®
 					cm.add(temp);
-				} else { // µ±²Ëµ¥Îª²Ëµ¥ÏîÊ±£¬Ö´ĞĞÒÔÏÂ²Ù×÷
-					JMenuItem temp = new JMenuItem(getItem(i).getText()); // ¿ËÂ¡²Ëµ¥Ãû
+				} else { // å½“èœå•ä¸ºèœå•é¡¹æ—¶ï¼Œæ‰§è¡Œä»¥ä¸‹æ“ä½œ
+					JMenuItem temp = new JMenuItem(getItem(i).getText()); // å…‹éš†èœå•å
 					temp.setMnemonic(getItem(i).getMnemonic());
-					for (ActionListener a : getItem(i).getActionListeners()) // ¿ËÂ¡ÊÂ¼ş¼àÌıÆ÷
+					for (ActionListener a : getItem(i).getActionListeners()) // å…‹éš†äº‹ä»¶ç›‘å¬å™¨
 					{
 						temp.addActionListener(a);
 					}

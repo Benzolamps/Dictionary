@@ -1,4 +1,4 @@
-package main;
+ï»¿package main;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +9,7 @@ import dictionary.DicLib;
 import dictionary.Word;
 
 /**
- * ÓÃÓÚ´¦ÀíÒì³£²Ù×÷
+ * ç”¨äºå¤„ç†å¼‚å¸¸æ“ä½œ
  * 
  * @author Benzolamps
  *
@@ -32,7 +32,7 @@ public class MyAction implements ActionListener {
 		for (DicLib d : frame.getDicLibs()) {
 			if (mi.getText().equals(d.getName())) {
 				if (index == -1) {
-					new MessageFrame("ÌáÊ¾", "ÇëÑ¡ÖĞÒª" + (isMove ? "ÒÆ¶¯" : "¸´ÖÆ") + "µÄµ¥´Ê!");
+					new MessageFrame("æç¤º", "è¯·é€‰ä¸­è¦" + (isMove ? "ç§»åŠ¨" : "å¤åˆ¶") + "çš„å•è¯!");
 				} else {
 					Word word = new Word();
 					word.setOrigin(new String(frame.getCurrentDicLib().get(index).getOrigin()));
@@ -40,7 +40,7 @@ public class MyAction implements ActionListener {
 					d.add(word);
 					if (isMove)
 						frame.getCurrentDicLib().remove(index);
-					new MessageFrame("ÌáÊ¾", (isMove ? "ÒÆ¶¯" : "¸´ÖÆ") + "³É¹¦");
+					new MessageFrame("æç¤º", (isMove ? "ç§»åŠ¨" : "å¤åˆ¶") + "æˆåŠŸ");
 					frame.receiveMessage();
 				}
 			}
