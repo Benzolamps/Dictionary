@@ -14,20 +14,19 @@ import main.MainFrame;
 import main.MessageFrame;
 
 /**
- * ÎÄ¼ş´¦Àí½çÃæÊÇJFrameµÄ×ÓÀà£¬ÊµÏÖÁËActionListener½Ó¿Ú
- * 
- * @author Benzolamps
+ * æ–‡ä»¶å¤„ç†ç•Œé¢æ˜¯JFrameçš„å­ç±»ï¼Œå®ç°äº†ActionListeneræ¥å£
  *
+ * @author Benzolamps
  */
 public class FileFrame extends JFrame implements ActionListener {
     private static final long serialVersionUID = -5019495375438539969L;
-    private MainFrame frame; // ÏîÄ¿Ö÷½çÃæ
-    private JFileChooser fc; // ÎÄ¼şÑ¡ÔñÆ÷£¬ÓÃÓÚÑ¡ÔñÒª´¦ÀíµÄÎÄ¼ş
-    private boolean isSave; // È·¶¨ÎÄ¼şÊÇ¶ÁÈ¡»¹ÊÇĞ´Èë£¬Èç¹ûÊÇĞ´ÈëÔòÆäÖµÎªtrue
+    private MainFrame frame; // é¡¹ç›®ä¸»ç•Œé¢
+    private JFileChooser fc; // æ–‡ä»¶é€‰æ‹©å™¨ï¼Œç”¨äºé€‰æ‹©è¦å¤„ç†çš„æ–‡ä»¶
+    private boolean isSave; // ç¡®å®šæ–‡ä»¶æ˜¯è¯»å–è¿˜æ˜¯å†™å…¥ï¼Œå¦‚æœæ˜¯å†™å…¥åˆ™å…¶å€¼ä¸ºtrue
 
     public FileFrame(MainFrame frame, boolean isSave) {
-        // super("Ñ¡ÔñÎÄ¼ş");
-        super(isSave ? "Áí´æÎª" : "´ò¿ª");
+        // super("é€‰æ‹©æ–‡ä»¶");
+        super(isSave ? "å¦å­˜ä¸º" : "æ‰“å¼€");
         this.frame = frame;
         this.isSave = isSave;
         setLayout(null);
@@ -35,8 +34,8 @@ public class FileFrame extends JFrame implements ActionListener {
         setSize(480, 400);
         setVisible(true);
         setResizable(false);
-        // JLabel messageLabel = new JLabel("ÇëÑ¡ÔñÎÄ¼ş£º");
-        JLabel messageLabel = new JLabel("ÇëÑ¡ÔñÒª" + (isSave ? "±¸·İ" : "»¹Ô­") + "µÄÎÄ¼ş£º");
+        // JLabel messageLabel = new JLabel("è¯·é€‰æ‹©æ–‡ä»¶ï¼š");
+        JLabel messageLabel = new JLabel("è¯·é€‰æ‹©è¦" + (isSave ? "å¤‡ä»½" : "è¿˜åŸ") + "çš„æ–‡ä»¶ï¼š");
         messageLabel.setBounds(10, 10, getContentPane().getWidth() - 110, 20);
         getContentPane().add(messageLabel);
         getContentPane().add(createFileChooser());
@@ -44,14 +43,15 @@ public class FileFrame extends JFrame implements ActionListener {
 
     private JFileChooser createFileChooser() {
         fc = new JFileChooser(".");
-        fc.setAcceptAllFileFilterUsed(false); // È¥µôËùÓĞÎÄ¼ş¿ÉÑ¡ÊôĞÔ
-        // ½«À©Õ¹ÃûÎª.dclµÄÎÄ¼ş¼ÓÈë¹ıÂËÆ÷
-        fc.addChoosableFileFilter(new FileNameExtensionFilter("´Ê¿âÎÄ¼ş(*.dcl)", "dcl"));
+        fc.setAcceptAllFileFilterUsed(false); // å»æ‰æ‰€æœ‰æ–‡ä»¶å¯é€‰å±æ€§
+        // å°†æ‰©å±•åä¸º.dclçš„æ–‡ä»¶åŠ å…¥è¿‡æ»¤å™¨
+        fc.addChoosableFileFilter(new FileNameExtensionFilter("è¯åº“æ–‡ä»¶(*.dcl)", "dcl"));
         fc.setBounds(0, 40, getContentPane().getWidth(), 320);
-        // Èç¹ûÒªĞ´ÈëÎÄ¼ş£¬Ä¬ÈÏÎÄ¼şÃûÎª"´Ê¿âÃû.dcl"
-        if (isSave)
+        // å¦‚æœè¦å†™å…¥æ–‡ä»¶ï¼Œé»˜è®¤æ–‡ä»¶åä¸º"è¯åº“å.dcl"
+        if (isSave) {
             fc.setSelectedFile(new File(frame.getCurrentDicLib().getName() + ".dcl"));
-        fc.setApproveButtonText("È·¶¨");
+        }
+        fc.setApproveButtonText("ç¡®å®š");
         fc.addActionListener(this);
 
         return fc;
@@ -59,21 +59,19 @@ public class FileFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        // TODO Auto-generated method stub
-        if (JFileChooser.APPROVE_SELECTION.equals(arg0.getActionCommand())) { // "È·¶¨"°´Å¥ÊÂ¼ş¼àÌı
+        if (JFileChooser.APPROVE_SELECTION.equals(arg0.getActionCommand())) { // "ç¡®å®š"æŒ‰é’®äº‹ä»¶ç›‘å¬
             setVisible(false);
             try {
                 if (!isSave) {
-                    // µ±¸ÃÎÄ¼ş²»ÊÇÊÊºÏÓÚÏîÄ¿Ê¹ÓÃµÄ´Ê¿âÎÄ¼ş£¬·¢³öÌáÊ¾ĞÅÏ¢
+                    // å½“è¯¥æ–‡ä»¶ä¸æ˜¯é€‚åˆäºé¡¹ç›®ä½¿ç”¨çš„è¯åº“æ–‡ä»¶ï¼Œå‘å‡ºæç¤ºä¿¡æ¯
                     if (new DicFile(fc.getSelectedFile().getPath(), false).getDicName() == null) {
-                        new MessageFrame("ÌáÊ¾", "²»ÊÇ¹æ·¶»¯µÄ´Ê¿âÎÄ¼ş!").setVisible(true);
+                        new MessageFrame("æç¤º", "ä¸æ˜¯è§„èŒƒåŒ–çš„è¯åº“æ–‡ä»¶!").setVisible(true);
                         return;
                     }
                 }
-                // ´ò¿ª±¸·İ»¹Ô­¶Ô»°¿ò
+                // æ‰“å¼€å¤‡ä»½è¿˜åŸå¯¹è¯æ¡†
                 new RecoverFrame(frame, fc.getSelectedFile().getPath(), isSave).setVisible(true);
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
