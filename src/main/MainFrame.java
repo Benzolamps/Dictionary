@@ -285,7 +285,6 @@ public class MainFrame extends JFrame
      */
     @Override
     public void valueChanged(ListSelectionEvent arg0) {
-        // TODO Auto-generated method stub
         if (wordList.getSelectedIndex() != -1) {
 
             showText.setText(currentDicLib.get(wordList.getSelectedIndex()).getMeaning());
@@ -310,7 +309,6 @@ public class MainFrame extends JFrame
      */
     @Override
     public void changedUpdate(DocumentEvent arg0) {
-        // TODO Auto-generated method stub
         seek();
     }
 
@@ -335,7 +333,6 @@ public class MainFrame extends JFrame
      */
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        // TODO Auto-generated method stub
         // 添加、删除、修改单词
         if ("添加单词(A)".equals(arg0.getActionCommand())) {
             new AddFrame(this).setVisible(true);

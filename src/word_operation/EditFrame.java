@@ -29,7 +29,6 @@ public class EditFrame extends WordFrame {
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        // TODO Auto-generated method stub
         if ("确定".equals(arg0.getActionCommand())) {
             // setVisible(false);
             if (!originText.getText().isEmpty()) {

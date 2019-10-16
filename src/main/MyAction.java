@@ -26,7 +26,6 @@ public class MyAction implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        // TODO Auto-generated method stub
         int index = frame.getWordList().getSelectedIndex();
         for (DicLib d : frame.getDicLibs()) {
             if (mi.getText().equals(d.getName())) {
