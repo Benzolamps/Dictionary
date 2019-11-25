@@ -22,14 +22,14 @@ public class DicFile extends File { // 定义词库文件类是File类的子类
     private BufferedReader raf = null; // 用于从文件中读取词库信息
     private PrintWriter waf = null; // 用于将词库信息写入文件
 
-    public DicFile(String pathName, boolean isWriter) throws IOException {
+    public DicFile(String pathName, boolean isWriter) {
         super(pathName);
     }
 
     /**
      * 定义此构造方法的目的是方便将词库文件加入项目，并通过URL转化为URI读取文件
      */
-    public DicFile(URI uri, boolean isWriter) throws IOException {
+    public DicFile(URI uri, boolean isWriter) {
         super(uri);
     }
 
@@ -77,7 +77,7 @@ public class DicFile extends File { // 定义词库文件类是File类的子类
                 str.replace(0, str.length(), String.format("%.2f%%", l / (double) length() * 100));
 
                 // 通过制表符来分割字符串，用于区分单词与释义，如果该行没有制表符，则会抛出IndexOutOfBoundsException异常
-                Word word = null;
+                Word word;
                 try {
                     word = new Word(temp.split("\t")[0], temp.split("\t")[1]);
                 } catch (IndexOutOfBoundsException e) { // 当temp.split("\t")数组越界，退出while循环

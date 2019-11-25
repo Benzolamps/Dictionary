@@ -24,7 +24,7 @@ public class LoadProcess {
 
             if (temp != null) {
                 // 通过制表符来分割字符串，用于区分单词与释义，如果该行没有制表符，则会抛出IndexOutOfBoundsException异常
-                Word word = null;
+                Word word;
                 try {
                     word = new Word(temp.split("\t")[0], temp.split("\t")[1]);
                 } catch (IndexOutOfBoundsException e) { // 当temp.split("\t")数组越界，退出while循环

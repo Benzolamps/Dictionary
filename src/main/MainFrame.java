@@ -46,9 +46,9 @@ import word_operation.EditFrame;
 public class MainFrame extends JFrame
         implements DocumentListener, ListSelectionListener, ActionListener, ItemListener, MouseListener, Runnable {
     private static final long serialVersionUID = 776572726716394096L;
-    private Vector<DicLib> dicLibs = new Vector<DicLib>(); // 存储词库的向量
+    private Vector<DicLib> dicLibs = new Vector<>(); // 存储词库的向量
     private DicLib currentDicLib = new DicLib("默认词库");
-    ; // 指向当前词库
+    // 指向当前词库
     private JMenuBar menuBar; // 菜单栏
     // 文件、编辑顶层菜单，弹出式菜单的子菜单，移动复制实时更新菜单
     // 弹出式菜单的子菜单结构与编辑菜单完全相同
@@ -65,7 +65,7 @@ public class MainFrame extends JFrame
     private JList wordList = new JList(currentDicLib); // 显示当前词库的单词列表
     private JScrollPane wordPane; // wordList的容器，含有垂直滚动条
 
-    public MainFrame() throws IOException {
+    public MainFrame() {
         super("电子英汉词典");
         setLayout(null);
         setSize(800, 600);
@@ -115,10 +115,8 @@ public class MainFrame extends JFrame
 
     /**
      * 创建默认词库
-     *
-     * @throws IOException
      */
-    private void createDefaultDicLib() throws IOException {
+    private void createDefaultDicLib() {
         // currentDicLib.add(new Word("student", "学生"));
         // currentDicLib.add(new Word("computer", "计算机"));
         dicLibs.add(currentDicLib);
@@ -439,7 +437,7 @@ public class MainFrame extends JFrame
     /*
      * 主方法
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         MainFrame.setDefaultLookAndFeelDecorated(true);
         new MainFrame().setDefaultCloseOperation(EXIT_ON_CLOSE);
     }

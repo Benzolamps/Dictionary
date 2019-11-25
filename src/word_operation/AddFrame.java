@@ -27,7 +27,7 @@ public class AddFrame extends WordFrame {
             // setVisible(false);
             if (!originText.getText().isEmpty()) {
                 setVisible(false);
-                String mean = new String("<font color=red>");
+                String mean = "<font color=red>";
                 mean = mean + originText.getText();
                 mean = mean + "</font><br><font color=green>";
                 mean = mean + meaningText.getText().replace("\n", "<br/>");

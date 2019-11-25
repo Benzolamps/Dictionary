@@ -34,7 +34,7 @@ public class EditFrame extends WordFrame {
             if (!originText.getText().isEmpty()) {
                 setVisible(false);
                 int index = frame.getWordList().getSelectedIndex();
-                String mean = new String("<font color=red>");
+                String mean = "<font color=red>";
                 mean = mean + originText.getText();
                 mean = mean + "</font><br><font color=green>";
                 mean = mean + meaningText.getText().replace("\n", "<br/>");

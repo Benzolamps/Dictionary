@@ -125,15 +125,11 @@ public class RecoverFrame extends JFrame implements ActionListener, Runnable {
         okButton.setEnabled(false);
         cancelButton.setEnabled(false);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        DicFile f = null;
+        DicFile f;
         DicLib dicLib = null;
-        try {
-            // 若文件名的扩展名不是.dcl，将在文件名末尾加上".dcl"
-            fileStr = (fileStr.endsWith(".dcl")) ? fileStr : (fileStr + ".dcl");
-            f = new DicFile(fileStr, false);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // 若文件名的扩展名不是.dcl，将在文件名末尾加上".dcl"
+        fileStr = (fileStr.endsWith(".dcl")) ? fileStr : (fileStr + ".dcl");
+        f = new DicFile(fileStr, false);
         // finally
 
         if (!isSave) // 还原操作
